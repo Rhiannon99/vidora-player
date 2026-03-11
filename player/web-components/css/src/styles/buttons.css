@@ -1,0 +1,162 @@
+/*************************************************************************************************
+ * Buttons
+ *************************************************************************************************/
+
+/* Easy way to hide all buttons that are not supported in current env (e.g. fullscreen/pip). */
+.media-button[aria-hidden='true'] {
+  display: none;
+}
+
+.media-button {
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  border-radius: 8px;
+  margin-right: 2.5px;
+  cursor: pointer;
+  /* Resets. */
+  padding: 0;
+  user-select: none;
+  appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.media-button > media-icon,
+.media-button > svg {
+  width: 80%;
+  height: 80%;
+  border-radius: 2px;
+}
+
+.media-button[data-focus] > media-icon,
+.media-button[data-focus] > svg {
+  box-shadow: var(--media-focus-ring);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .media-button:hover {
+    background-color: rgb(255 255 255 / 0.2);
+  }
+}
+
+media-mute-button {
+  margin-left: -2.5px;
+  margin-right: -5px !important;
+}
+
+@keyframes click-feedback {
+  0% {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}
+
+/* Click feedback — pulses on play */
+.media-click-feedback {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 9999px;
+  background: rgb(0 0 0 / 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 9;
+}
+
+.media-click-feedback svg {
+  width: 36px;
+  height: 36px;
+}
+
+media-player[data-started]:not([data-paused]) .media-click-feedback {
+  animation: click-feedback 0.5s ease forwards;
+}
+
+media-fullscreen-button {
+  margin-right: 0 !important;
+}
+
+/* Tablet player (≤ 900px) */
+@container (max-width: 900px) {
+  .media-button {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Medium player (≤ 640px) */
+@container (max-width: 640px) {
+  .media-button {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Small player (≤ 480px) */
+@container (max-width: 480px) {
+  .media-button {
+    width: 45px;
+    height: 45px;
+    margin-right: 0;
+  }
+}
+
+media-play-button:not([data-paused]) .media-play-icon,
+media-play-button[data-ended] .media-play-icon,
+media-play-button[data-paused] .media-pause-icon,
+media-play-button[data-ended] .media-pause-icon,
+media-play-button:not([data-ended]) .media-replay-icon {
+  display: none;
+}
+
+media-pip-button[data-active] .media-pip-enter-icon,
+media-pip-button:not([data-active]) .media-pip-exit-icon {
+  display: none;
+}
+
+media-fullscreen-button[data-active] .media-fs-enter-icon,
+media-fullscreen-button:not([data-active]) .media-fs-exit-icon {
+  display: none;
+}
+
+.media-menu-button .media-subtitle-icon {
+  width: 80%;
+  height: 80%;
+  color: white;
+}
+
+.media-menu-button[aria-expanded='true'] .media-subtitle-icon,
+media-menu[data-active] .media-subtitle-icon {
+  color: white;
+}
+
+media-mute-button:not([data-muted]) .media-mute-icon,
+media-mute-button:not([data-state='low']) .media-volume-low-icon,
+media-mute-button:not([data-state='high']) .media-volume-high-icon {
+  display: none;
+}
+
+media-google-cast-button[data-active] .media-cast-enter-icon,
+media-google-cast-button:not([data-active]) .media-cast-exit-icon {
+  display: none;
+}

@@ -1,0 +1,50 @@
+/*************************************************************************************************
+ * Time
+ *************************************************************************************************/
+
+.media-time-group {
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+media-time {
+  display: inline-block;
+  contain: content;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.025em;
+  font-family: 'Inter', 'Inter Fallback', serif;
+}
+
+.media-time-divider {
+  margin: 0 2.5px;
+  color: #e0e0e0;
+}
+
+/* Medium player (≤ 640px) */
+@container (max-width: 640px) {
+  media-time {
+    font-size: 13px;
+  }
+
+  .media-time-group {
+    margin-left: 4px;
+  }
+}
+
+/* Small player (≤ 480px) */
+@container (max-width: 480px) {
+  media-time {
+    font-size: 11px;
+    letter-spacing: 0;
+  }
+
+  .media-time-group {
+    margin-left: 2px;
+  }
+
+  .media-time-divider {
+    margin: 0 1px;
+  }
+}
