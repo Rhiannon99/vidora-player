@@ -108,7 +108,7 @@ media-slider-thumbnail {
 
 media-slider-value {
   font-size: 13px;
-  padding: 1px 10px;
+  padding: 6px 10px;
   border-radius: 2px;
 }
 
@@ -128,7 +128,7 @@ media-volume-slider {
 }
 
 media-volume-slider media-slider-value {
-  background-color: black;
+  /* background-color: black; */
 }
 
 media-slider-preview [data-part='chapter-title'] {
